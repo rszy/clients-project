@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ClientService {
@@ -41,7 +42,9 @@ public class ClientService {
     }
 
     public ClientDTO addClient (CreateClientDTO createClientDTO) throws ClientAlreadyExist, ClientDataInvalid {
-        if(createClientDTO.getFirstName() == null || createClientDTO.getLastName() == null || createClientDTO.getPesel() == null) {
+        if(createClientDTO.getFirstName() == null
+                || createClientDTO.getLastName() == null
+                || createClientDTO.getPesel() == null) {
             throw new ClientDataInvalid();
         }
 
@@ -50,9 +53,8 @@ public class ClientService {
             throw new ClientAlreadyExist();
         } catch (ClientNotFound clientNotFound) {
             Client createdClient = clientDtoMapper.mapDtoToModel(createClientDTO);
-
-//            String randomId = UUID.randomUUID().toString();
-//            createdUser.setUserId(randomId);
+            String randomId = UUID.randomUUID().toString();
+            createdClient.setClientId(randomId);
             clientRepository.save(createdClient);
             return clientDtoMapper.mapModelToDto(createdClient);
         }

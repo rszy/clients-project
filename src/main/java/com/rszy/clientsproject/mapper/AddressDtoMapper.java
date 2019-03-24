@@ -22,12 +22,12 @@ public class AddressDtoMapper {
     }
 
     public  Address mapDtoToModel(CreateAddressDTO createAddressDTO) {
-        return new Address(null,
+        return new Address(null, createAddressDTO.getStreet(),
                 createAddressDTO.getStreetNumber(),
                 createAddressDTO.getApartmentNumber(),
                 createAddressDTO.getCity(),
                 createAddressDTO.getPostalCode(),
                 createAddressDTO.getCountry(),
-                new Client());
+                null);
     }
 }

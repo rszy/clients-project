@@ -7,7 +7,6 @@ import java.util.List;
 public class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String clientId;
     private String firstName;
     private String lastName;
@@ -21,7 +20,8 @@ public class Client {
     public Client() {
     }
 
-    public Client(String firstName, String lastName, String pesel, String email, String phoneNumber, List<Address> addressList) {
+    public Client(String clientId, String firstName, String lastName, String pesel, String email, String phoneNumber, List<Address> addressList) {
+        this.clientId = clientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;

@@ -21,11 +21,11 @@ public class ClientDtoMapper {
     }
 
     public Client mapDtoToModel (CreateClientDTO createClientDTO) {
-        return new Client(createClientDTO.getFirstName(),
+        return new Client(null, createClientDTO.getFirstName(),
                 createClientDTO.getLastName(),
                 createClientDTO.getPesel(),
                 createClientDTO.getEmail(),
                 createClientDTO.getPhoneNumber(),
-                new ArrayList<>());
+                null);
     }
 }

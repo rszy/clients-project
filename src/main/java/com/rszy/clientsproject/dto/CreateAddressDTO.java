@@ -10,18 +10,20 @@ public class CreateAddressDTO {
     private String city;
     private String postalCode;
     private String country;
+    private String clientId;
 //    private Client client;
 
     public CreateAddressDTO() {
     }
 
-    public CreateAddressDTO(String street, String streetNumber, String apartmentNumber, String city, String postalCode, String country) {
+    public CreateAddressDTO(String street, String streetNumber, String apartmentNumber, String city, String postalCode, String country, String clientId) {
         this.street = street;
         this.streetNumber = streetNumber;
         this.apartmentNumber = apartmentNumber;
         this.city = city;
         this.postalCode = postalCode;
         this.country = country;
+        this.clientId = clientId;
     }
 
     public String getStreet() {
@@ -79,4 +81,12 @@ public class CreateAddressDTO {
 //    public void setClient(Client client) {
 //        this.client = client;
 //    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
 }

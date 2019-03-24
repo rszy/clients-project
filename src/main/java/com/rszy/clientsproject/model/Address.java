@@ -6,7 +6,6 @@ import javax.persistence.*;
 public class Address {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String addressId;
     private String street;
     private String streetNumber;
@@ -22,7 +21,8 @@ public class Address {
     public Address() {
     }
 
-    public Address(String street, String streetNumber, String apartmentNumber, String city, String postalCode, String country, Client client) {
+    public Address(String addressId, String street, String streetNumber, String apartmentNumber, String city, String postalCode, String country, Client client) {
+        this.addressId = addressId;
         this.street = street;
         this.streetNumber = streetNumber;
         this.apartmentNumber = apartmentNumber;
