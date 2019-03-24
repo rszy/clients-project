@@ -47,7 +47,7 @@ public class ClientService {
 
         try {
             getClientByPesel(createClientDTO.getPesel());
-            throw  new ClientAlreadyExist();
+            throw new ClientAlreadyExist();
         } catch (ClientNotFound clientNotFound) {
             Client createdClient = clientDtoMapper.mapDtoToModel(createClientDTO);
 
